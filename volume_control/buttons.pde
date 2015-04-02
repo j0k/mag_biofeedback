@@ -1,6 +1,7 @@
 // http://processingjs.org/learning/topic/buttons/
 boolean locked = false;
 PFont font = createFont("Arial",16,true);
+PFont font12 = createFont("Arial",12,true);
 
 boolean over() 
   { 
@@ -18,6 +19,7 @@ class Button
   boolean pressed = false;
   String  label= "";  
 
+  float pressedtime = 0;
   void update() 
   {
     if(over()) {
@@ -30,14 +32,21 @@ class Button
 
   boolean pressed() 
   {
-    if(over) {
-      locked = true;
-      return true;
-    } 
-    else {
-      locked = false;
-      return false;
-    }    
+    float t = millis();
+    
+    if ((t - pressedtime) > 100){
+      pressedtime = millis();
+      
+      if(over) {
+        locked = true;
+        return true;
+      } 
+      else {
+        locked = false;
+        return false;
+      }    
+    } else 
+    return false;
   }
 
   boolean over() 

@@ -18,6 +18,6 @@ void setVolume(float value){
   volume = value;
   
   float gainVol = gainToVolume(value/100);
-  player.setGain(gainVol);
+  music.player.setGain(gainVol);
   println(gainVol);
 }

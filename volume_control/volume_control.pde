@@ -1,8 +1,4 @@
 import processing.net.*; 
-import ddf.minim.*;
-AudioPlayer player;
-Minim minim;//audio context
-
 
 Client myClient; 
 
@@ -11,18 +7,17 @@ JSONObject json;
 
 float ms = 0, client_ms;
 
-
+Music music = new Music();
 void setup() { 
-  size(250, 600);
+  size(350, 600);
   
   minim = new Minim(this);
-  player = minim.loadFile("muz/alone.mp3", 2048);
-  player.play(); 
-
+  
   myClient = new Client(this, "127.0.0.1", 19999);
  
-  player.play();
-  println(player.getControls());
+  music.next();
+  music.play();
+  println(music.player.getControls());
   ms = millis();
   client_ms = millis();
  
@@ -34,7 +29,6 @@ boolean tcpPlaying = false;
 
 
 void draw() {
- //gui_display();
   
   if (myClient.available() > 0) { 
      background(255, 224, 170); 
@@ -96,7 +90,7 @@ void update(int x, int y)
 
 void stop()
 {
-  player.close();
+  music.player.close();
   minim.stop();
   super.stop();
 }

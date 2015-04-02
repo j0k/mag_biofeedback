@@ -4,7 +4,10 @@ classdef data < handle
     
     properties
         d = [];
+        draw = [];
+        dvol = [];
         m = 300; % MAX
+        mraw = 600; 
     end
     
     methods
@@ -15,6 +18,17 @@ classdef data < handle
             obj.d = op.addD(obj.d, d_recv, obj.m);
             dres = obj.d;
         end
+        
+        function [dres] = addRaw(obj, d_recv)
+            obj.draw = op.addD(obj.draw, d_recv, obj.mraw);
+            dres = obj.draw;
+        end
+        
+        function [dres] = addVol(obj, d_recv)
+            obj.dvol = op.addD(obj.dvol, d_recv, obj.m);
+            dres = obj.dvol;
+        end
+        
     end
     
 end

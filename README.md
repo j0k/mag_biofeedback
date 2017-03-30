@@ -1,7 +1,10 @@
 # mag_biofeedback
 
-Here a will post my master releated files for creating biofeedback for theta-rythm using OpenViBE
+Here a is my master degree releated files for creating music biofeedback for theta-rhythm.  using OpenViBE.
 
-.m - Matlav
-.pde - processing
+You also need a MitSAR 201 EEG device. 
+
+.m - MATLAB
+.pde - Processing
+.xml - OpenViBE scenarious
 
